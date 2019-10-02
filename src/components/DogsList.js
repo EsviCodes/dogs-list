@@ -18,14 +18,14 @@ export default class DogsList extends Component {
         <h1>Dogs List</h1>
         <ul>
           {dogBreeds
-            .map(breed =>
-              breed
-                .split(" ")
-                .map(
-                  word => word[0].toUpperCase() + word.slice(1).toLowerCase()
-                )
-                .join(" ")
-            )
+            // .map(breed =>
+            //   breed
+            //     .split(" ")
+            //     .map(
+            //       word => word[0].toUpperCase() + word.slice(1).toLowerCase()
+            //     )
+            //     .join(" ")
+            // )
             .map(this.renderDogBreed)}
         </ul>
       </div>
