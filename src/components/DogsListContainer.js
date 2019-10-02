@@ -3,7 +3,7 @@ import request from "superagent";
 import DogsList from "./DogsList";
 
 export default class DogsListContainer extends Component {
-  state = { dogBreeds: [] };
+  state = { dogBreeds: [], dataHasArrived: false };
 
   componentDidMount() {
     request
@@ -17,11 +17,17 @@ export default class DogsListContainer extends Component {
 
   updateBreeds(breeds) {
     this.setState({
-      dogBreeds: breeds
+      dogBreeds: breeds,
+      dataHasArrived: true
     });
   }
 
   render() {
-    return <DogsList dogBreeds={this.state.dogBreeds} />;
+    return (
+      <DogsList
+        dogBreeds={this.state.dogBreeds}
+        dataHasArrived={this.state.dataHasArrived}
+      />
+    );
   }
 }

@@ -6,12 +6,23 @@ export default class DogsList extends Component {
   }
 
   render() {
-    const { dogBreeds } = this.props;
+    const { dogBreeds, dataHasArrived } = this.props;
+
     return (
       <div className="dogs-list">
         <h1>Dogs List</h1>
-        {dogBreeds === [] && "Loading..."}
-        {dogBreeds && <ul>{dogBreeds.map(this.renderDogBreed)}</ul>}
+        <ul>
+          {dogBreeds
+            .map(breed =>
+              breed
+                .split(" ")
+                .map(
+                  word => word[0].toUpperCase() + word.slice(1).toLowerCase()
+                )
+                .join(" ")
+            )
+            .map(this.renderDogBreed)}
+        </ul>
       </div>
     );
   }
